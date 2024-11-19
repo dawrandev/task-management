@@ -19,67 +19,101 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
 
         User::create([
-            'name' => 'Jameson Fay',
-            'email' => 'mohamed76@example.com',
+            'name' => 'Azamat',
+            'email' => 'azamat@example.com',
+            'password' => Hash::make('password123'),
+            'role' => 'contributor',
             'email_verified_at' => now(),
+            'remember_token' => Str::random(10),
+        ]);
+
+        User::create([
+            'name' => 'Aydos',
+            'email' => 'aydos@example.com',
+            'password' => Hash::make('password123'),
+            'role' => 'contributor',
+            'email_verified_at' => now(),
+            'remember_token' => Str::random(10),
+        ]);
+
+        User::create([
+            'name' => 'Diyar',
+            'email' => 'diyar@example.com',
+            'password' => Hash::make('password123'),
+            'role' => 'contributor',
+            'email_verified_at' => now(),
+            'remember_token' => Str::random(10),
+        ]);
+
+        User::create([
+            'name' => 'Aziz',
+            'email' => 'aziz@example.com',
+            'password' => Hash::make('password123'),
+            'role' => 'contributor',
+            'email_verified_at' => now(),
+            'remember_token' => Str::random(10),
+        ]);
+
+        User::create([
+            'name' => 'Islam',
+            'email' => 'islam@example.com',
+            'password' => Hash::make('password123'),
+            'role' => 'contributor',
+            'email_verified_at' => now(),
+            'remember_token' => Str::random(10),
+        ]);
+
+        User::create([
+            'name' => 'Samandar',
+            'email' => 'samandar@example.com',
+            'password' => Hash::make('password123'),
+            'role' => 'contributor',
+            'email_verified_at' => now(),
+            'remember_token' => Str::random(10),
+        ]);
+
+        User::create([
+            'name' => 'Jandos',
+            'email' => 'jandos@example.com',
+            'password' => Hash::make('password123'),
+            'role' => 'contributor',
+            'email_verified_at' => now(),
+            'remember_token' => Str::random(10),
+        ]);
+
+        User::create([
+            'name' => 'Mirzabek',
+            'email' => 'mirzabek@example.com',
+            'password' => Hash::make('password123'),
+            'role' => 'contributor',
+            'email_verified_at' => now(),
+            'remember_token' => Str::random(10),
+        ]);
+
+        User::create([
+            'name' => 'Asad',
+            'email' => 'asad@example.com',
+            'password' => Hash::make('password123'),
+            'role' => 'contributor',
+            'email_verified_at' => now(),
+            'remember_token' => Str::random(10),
+        ]);
+
+        User::create([
+            'name' => 'Dawranbek',
+            'email' => 'dawran@example.com',
             'password' => Hash::make('password123'),
             'role' => 'admin',
-            'remember_token' => Str::random(10),
-        ]);
-
-        User::create([
-            'name' => 'Ms. Bria Eichmann Jr.',
-            'email' => 'freddie.hirthe@example.org',
             'email_verified_at' => now(),
-            'password' => Hash::make('password123'),
-            'role' => 'contributor',
-            'remember_token' => Str::random(10),
-        ]);
-
-        User::create([
-            'name' => 'Jasmine Macejkovic',
-            'email' => 'johnson.marina@example.org',
-            'email_verified_at' => now(),
-            'password' => Hash::make('password123'),
-            'role' => 'contributor',
-            'remember_token' => Str::random(10),
-        ]);
-
-        User::create([
-            'name' => 'Mr. Simon Cremin',
-            'email' => 'augustine.stokes@example.com',
-            'email_verified_at' => now(),
-            'password' => Hash::make('password123'),
-            'role' => 'admin',
-            'remember_token' => Str::random(10),
-        ]);
-
-        User::create([
-            'name' => 'Aidan Hickle',
-            'email' => 'maeve.okeefe@example.org',
-            'email_verified_at' => now(),
-            'password' => Hash::make('password123'),
-            'role' => 'contributor',
-            'remember_token' => Str::random(10),
-        ]);
-
-        User::create([
-            'name' => 'Blanca Schmeler',
-            'email' => 'rosales.maryam@example.org',
-            'email_verified_at' => now(),
-            'password' => Hash::make('password123'),
-            'role' => 'contributor',
             'remember_token' => Str::random(10),
         ]);
         Project::create([
-            
-                    'name' => 'Website Redesign',
-                    'description' => 'Complete overhaul of the company website to improve user experience and performance.',
-                    'status' => 'Progress', 
-                    'due_date' => Carbon::now()
+            'name' => 'Website Redesign',
+            'description' => 'Complete overhaul of the company website to improve user experience and performance.',
+            'status' => 'Progress', 
+            'due_date' => Carbon::now()
         ]);
         Project::create([
             'name' => 'Mobile App Development',

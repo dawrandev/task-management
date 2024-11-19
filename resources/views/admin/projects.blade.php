@@ -3,6 +3,23 @@
         <section class="section">
           <div class="section-body">
             <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4"></div>
+            <div class="col-4">
+            <div class="card-header-form">
+            <form action="{{Route('project_search')}}" method="get">
+                @csrf
+                <div class="input-group">
+                <input type="text" name="name" class="form-control" placeholder="Search">
+                <div class="input-group-btn">
+                    <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                </div>
+                </div>
+            </form><br>
+            </div>
+            </div>
+            </div>
+            <div class="row">
               @foreach($projects as $project)
               <div class="col-12 col-md-6 col-lg-6">
                 <div class="card">

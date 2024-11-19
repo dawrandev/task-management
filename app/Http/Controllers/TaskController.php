@@ -15,7 +15,8 @@ class TaskController extends Controller
     public function tasks_page($project_id){
         $project = Project::where('id', $project_id)
         ->first();
-        $tasks = Task::all();
+        $tasks = Task::where('project_id', $project_id)
+        ->get();
         $users = DB::table('users')
         ->join('task_users', 'users.id', '=', 'task_users.user_id')
         ->select('users.name', 'task_users.task_id')
@@ -69,5 +70,18 @@ class TaskController extends Controller
             'status'=>$request->status
         ]);
         return redirect()->route('tasks_page', $request->project_id);
+    }
+    public function task_search(Request $request, $project_id){
+        $project = Project::where('id', $project_id)
+        ->first();
+        $tasks = Task::where('title', 'like', '%' . $request->task_name . '%')
+            ->where('project_id', $project_id)
+            ->get();
+        $users = DB::table('users')
+            ->join('task_users', 'users.id', '=', 'task_users.user_id')
+            ->select('users.name', 'task_users.task_id')
+            ->get();
+
+        return view('admin.tasks', compact('project', 'tasks', 'users'));
     }
 } 

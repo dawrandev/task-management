@@ -32,9 +32,10 @@
                                     <div class="card-header">
                                         <h4>Tasks Table</h4>
                                         <div class="card-header-form">
-                                        <form>
+                                        <form action="{{Route('task_search', $project->id)}}" method="get">
+                                            @csrf
                                             <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="Search">
+                                            <input type="text" name="task_name" class="form-control" placeholder="Search">
                                             <div class="input-group-btn">
                                                 <button class="btn btn-primary"><i class="fas fa-search"></i></button>
                                             </div>

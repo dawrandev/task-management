@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -32,6 +33,25 @@ class UserController extends Controller
         return view('user.user_tasks', compact('tasks', 'users'));
     }
     public function users(){
-        return view('admin.users');
+        $contributors = User::where('role', 'contributor')->get();
+        $users = User::all();
+        $i = 1;
+        return view('admin.users', compact('users', 'contributors', 'i'));
+    }
+    public function select_admin(Request $request){
+
+        $validate = $request->validate([
+            'user_id'=>'required|array',
+            'user_id.*'=>'integer'
+        ]);
+        foreach($request->user_id as $id){
+            $user = User::find($id);
+            if($user){
+                $user->update([
+                    'role'=>'admin'
+                ]);
+            }
+        }
+        return $this->users();
     }
 }

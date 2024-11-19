@@ -17,6 +17,7 @@ Route::controller(ProjectController::class)->middleware('auth')->group(function(
     Route::get('/projects', 'projects')->name('projects');
     Route::get('/create_project_page', 'create_project_page')->name('create_project_page');
     Route::post('/create_project', 'create_project')->name('create_project');
+    Route::get('/project_search', 'project_search')->name('project_search');
 });
 Route::controller(TaskController::class)->middleware('auth')->group(function(){
     Route::get('/tasks_page/{project_id}', 'tasks_page')->name('tasks_page');
@@ -24,6 +25,7 @@ Route::controller(TaskController::class)->middleware('auth')->group(function(){
     Route::post('/create_task', 'create_task')->name('create_task');
     Route::get('/detail_task_page/{task_id}/{project_id}', 'detail_task_page')->name('detail_task_page');
     Route::post('/edit_task', 'edit_task')->name('edit_task');
+    Route::get('/task_search/{project_id}', 'task_search')->name('task_search');
 });
 Route::controller(ProjectUserController::class)->middleware('auth')->group(function(){
     Route::get('/assign_project_users_page/{project_id}/{task_id?}', 'assign_project_users_page')->name('assign_project_users_page');
@@ -51,6 +53,7 @@ Route::controller(UserController::class)->middleware('auth')->group(function(){
     Route::get('/user/projects', 'user_projects_page')->name('user_projects_page');
     Route::get('/user/user_tasks', 'user_tasks')->name('user_tasks');
     Route::get('/users', 'users')->name('users');
+    Route::post('/select_admin', 'select_admin')->name('select_admin');
 });
 Route::controller(NotificationController::class)->middleware('auth')->group(function(){
     Route::get('/send_message_page', 'send_message_page')->name('send_message_page');

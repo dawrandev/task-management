@@ -93,7 +93,7 @@
                                                         <th>Username</th>
                                                         <th>Role</th>
                                                         </tr>
-                                                        @foreach($project_users as $user)
+                                                        @foreach($task_users as $user)
                                                         <tr>
                                                     <td>{{$user->name}}</td>
                                                     <td>{{$user->role}}</td>

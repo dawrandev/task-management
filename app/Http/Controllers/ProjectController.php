@@ -31,6 +31,14 @@ class ProjectController extends Controller
         ]);
         return $this->projects();
     }
+    public function project_search(Request $request){
+        $projects = Project::where('name', 'like', '%' . $request->name . '%')
+        ->orwhere('description', 'like', '%' . $request->name . '%')
+        ->orwhere('status', 'like', '%' . $request->name . '%')
+        ->orwhere('due_date', 'like', '%' . $request->name . '%')
+        ->get();
+        return view('admin.projects', compact('projects'));
+    }
 }
 
 
